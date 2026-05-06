@@ -1,6 +1,10 @@
-# Movie Booking App
+# Movie Booking App — Movie Ticket Booking System
 
-A React + Vite movie ticket booking app with authentication, movie discovery, cinema selection, showtime booking, and location-based filtering.
+---
+
+![status active](https://img.shields.io/badge/status-active-brightgreen?style=flat-square) ![API TMDB](https://img.shields.io/badge/API-TMDB-blue?style=flat-square) ![frontend React 19](https://img.shields.io/badge/frontend-React%2019-00d8ff?style=flat-square) ![bundler Vite](https://img.shields.io/badge/bundler-Vite-8B5CF6?style=flat-square) ![license MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+
+**Movie Booking App** is a frontend movie ticket booking platform combining local browser storage (`localStorage`) with external APIs (TMDB & OpenStreetMap) to discover movies, authenticate users, and simulate showtime bookings. Produces dynamic location-based movie filtering, simulated theater selection, and localized booking history.
 
 ## Features
 
