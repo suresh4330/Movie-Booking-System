@@ -17,7 +17,24 @@ function Register() {
 
   const handleSubmit = () => {
 
+    if (!user.name || !user.email || !user.password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(user.email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
     let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.find(u => u.email === user.email)) {
+      alert("User with this email already exists");
+      return;
+    }
 
     users.push(user);
 
