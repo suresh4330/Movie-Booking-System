@@ -1,88 +1,136 @@
-# Movie Booking App — Movie Ticket Booking System
+# 🎬 Movie Booking App
+
+**Movie Booking App** is a responsive frontend web application that enables users to discover movies, explore cinemas, and simulate ticket bookings — all powered by the TMDB API and browser-local storage. It supports location-based movie filtering using the OpenStreetMap Nominatim API, real-time movie search, and a complete booking flow from registration to booking confirmation.
+
+🔗 [Live Demo](#) <!-- Replace with your deployed URL -->
 
 ---
 
-![status active](https://img.shields.io/badge/status-active-brightgreen?style=flat-square) ![API TMDB](https://img.shields.io/badge/API-TMDB-blue?style=flat-square) ![frontend React 19](https://img.shields.io/badge/frontend-React%2019-00d8ff?style=flat-square) ![bundler Vite](https://img.shields.io/badge/bundler-Vite-8B5CF6?style=flat-square) ![license MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+## 🛠️ Tech Stack
 
-**Movie Booking App** is a frontend movie ticket booking platform combining local browser storage (`localStorage`) with external APIs (TMDB & OpenStreetMap) to discover movies, authenticate users, and simulate showtime bookings. Produces dynamic location-based movie filtering, simulated theater selection, and localized booking history.
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-7-CA4245?style=flat-square&logo=react-router&logoColor=white)
+![TMDB API](https://img.shields.io/badge/API-TMDB-01B4E4?style=flat-square&logo=themoviedatabase&logoColor=white)
+![OpenStreetMap](https://img.shields.io/badge/API-OpenStreetMap-7EBC6F?style=flat-square&logo=openstreetmap&logoColor=white)
+![LocalStorage](https://img.shields.io/badge/Storage-localStorage-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
-## Features
+---
 
-- User registration and login using `localStorage`
-- Browse now-playing and recommended movies
-- Search movies by title
-- Filter movies by Indian state/region
-- View movie details, cast, director, and runtime
-- Pick cinemas and showtimes
-- Book tickets and store booking history locally
-- Detect user location using browser geolocation
-- Fallback movie data when the movie API does not respond
+## ✨ Features
 
-## Tech Stack
+- 🔐 User **Registration & Login** using `localStorage`
+- 🎥 Browse **Now Playing** and recommended movies via TMDB API
+- 🔍 **Search** movies by title in real time
+- 📍 **Location-based filtering** by Indian state using browser geolocation & Nominatim API
+- 🎞️ View **movie details** — cast, director, runtime, and genre
+- 🏟️ Browse **cinemas** and available **showtimes**
+- 🎟️ **Book tickets** and store booking history locally
+- 🗂️ Fallback to local movie data when the TMDB API is unavailable
 
-- React 19
-- Vite
-- React Router DOM
-- Plain CSS
-- TMDB API for movie data
-- OpenStreetMap Nominatim for reverse geocoding
+---
 
-## Getting Started
+## 📁 Project Structure
 
-1. Install dependencies:
+```
+Movie/
+├── src/
+│   ├── components/
+│   │   ├── Auth/          # Register & Login
+│   │   ├── Dashboard/     # MovieList (Browse & Search)
+│   │   ├── Cinema/        # CinemaList (Theater selection)
+│   │   ├── Show/          # ShowTime (Showtime picker)
+│   │   └── Booking/       # BookingSuccess (Confirmation)
+│   ├── api/               # TMDB & Nominatim API calls
+│   ├── data/              # Local fallback movie data
+│   ├── App.jsx            # Route configuration
+│   └── main.jsx           # App entry point
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/movie-booking-app.git
+cd movie-booking-app/Movie
+```
+
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-2. Start the development server:
+### 3. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-3. Open the local URL shown by Vite in your browser.
+Open the local URL shown by Vite in your browser.
 
-## Available Scripts
+---
 
-```bash
-npm run dev
-npm run build
-npm run preview
-npm run lint
+## 🔄 App Flow
+
+```
+Register → Login → Browse Movies → Filter/Search → Movie Details → Select Cinema → Pick Showtime → Book Ticket → Confirmation
 ```
 
-## App Flow
+1. **Register** — Create a new account (stored in `localStorage`)
+2. **Login** — Authenticate with your credentials
+3. **Dashboard** — Browse now-playing movies, filter by state, or search
+4. **Movie Detail** — View cast, director, runtime, and choose a cinema
+5. **Showtime** — Pick a show slot for the selected cinema
+6. **Booking Confirmed** — Receive a booking confirmation stored locally
 
-1. Register a new account.
-2. Log in with the same credentials.
-3. Browse movies from the dashboard.
-4. Filter by state or search by movie name.
-5. Open a movie to see details and cinema options.
-6. Select a showtime and confirm the booking.
+---
 
-## Data Sources
+## 📡 Data Sources
 
-- TMDB API for movie listings, search, and movie details
-- OpenStreetMap Nominatim for reverse geocoding
-- `localStorage` for users, session state, and bookings
+| Source | Usage |
+|---|---|
+| [TMDB API](https://www.themoviedb.org/documentation/api) | Movie listings, search, cast, and details |
+| [OpenStreetMap Nominatim](https://nominatim.org/) | Reverse geocoding for location-based filtering |
+| `localStorage` | Users, session state, and booking history |
 
-## Notes
+---
 
-- This is a frontend-only project with no backend.
-- Booking, login, and user data are stored locally in the browser.
-- The current TMDB API key is hardcoded and should be moved to environment variables before production deployment.
-- If the movie API fails, local fallback movie data is used.
+## 📌 Notes
 
-## Future Improvements
+- This is a **frontend-only** project with no backend server.
+- All booking, login, and user data are persisted in the browser's `localStorage`.
+- The TMDB API key is currently hardcoded — move it to a `.env` file before deploying.
+- Offline fallback data ensures the app remains usable when the API is unreachable.
 
-- Seat selection
-- Payment integration
-- Booking history page
-- Protected routes
-- Backend and database integration
-- Environment-based API configuration
+---
 
-## Author
+## 🔮 Future Improvements
 
-Annamneedi suresh kumar
+- [ ] Seat selection UI
+- [ ] Payment gateway integration
+- [ ] Dedicated booking history page
+- [ ] Protected routes (auth guard)
+- [ ] Backend + database integration
+- [ ] Environment-based API configuration
+
+---
+
+## 👤 Author
+
+**Annamneedi suresh kumar**  
+Built with ❤️ using React, Vite, TailwindCSS, and the TMDB API.
+
+---
+
+## 🏷️ Topics
+
+`react` · `vite` · `tailwindcss` · `movie-booking` · `tmdb-api` · `openstreetmap` · `localstorage` · `react-router` · `frontend` · `javascript` · `location-based-filtering` · `ticket-booking`
